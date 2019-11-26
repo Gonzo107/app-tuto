@@ -1,0 +1,35 @@
+<div
+  fxLayout="column"
+  fxLayoutAlign="space-around stretch"
+  *ngFor="let nivel of niveles; let i = index"
+>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Nivel {{ i + 1 }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content
+      fxLayout="row"
+      fxLayoutAlign="space-evenly center"
+      fxLayoutGap="1rem"
+    >
+      <ng-container *ngFor="let imagen of nivel.cities">
+        <div>
+          <button mat-raised-button (click)="clickImg(i, imagen)">
+            <img fxFill class="img-fit" src="assets/img/{{ imagen.img }}.png" />
+          </button>
+        </div>
+      </ng-container>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      Tu destino ideal es:
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content fxLayout="row" fxLayoutAlign="center center">
+    <img fxFill src="assets/img/{{ ganador }}.jpg" />
+  </mat-card-content>
+</mat-card>
